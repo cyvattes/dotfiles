@@ -1,0 +1,54 @@
+{
+  "layer": "top",
+  "height": 25,
+  "margin-top": 5,
+  "margin-right": 10,
+  "margin-bottom": 0,
+  "margin-left": 10,
+
+  "include": ["~/.config/waybar/modules.json"],
+
+  "modules-left": [
+    "custom/icon",
+    "custom/separator",
+    "battery",
+    "cpu",
+    "memory",
+    "temperature",
+    "custom/separator",
+    "custom/window-name"
+  ],
+
+  "modules-center": [
+    "sway/workspaces"
+    //"hyprland/workspaces"
+  ],
+
+  "modules-right": [
+    "backlight",
+    "pulseaudio",
+    "network",
+    "tray",
+    "clock",
+    "custom/exit"
+  ],
+
+  "custom/stats": [
+    
+  ],
+
+  "custom/icon": {
+    "format": ""
+  },
+
+  "custom/window-name": {
+    "format": "<b>{}</b>",
+    "interval": 1,
+    "exec": "hyprctl activewindow | grep class | awk '{print $2}'"
+  },
+
+  "tray": {
+    "icon-size": 20,
+    "spacing": 8
+  }
+}

@@ -1,0 +1,50 @@
+# get current branch in git repo
+function parse_git_branch() {
+	BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
+	if [ -n "${BRANCH}" ]
+	then
+		STAT=`parse_git_dirty`
+		echo "[${BRANCH}${STAT}]"
+	else
+		echo ""
+	fi
+}
+
+# get current status of git repo
+function parse_git_dirty {
+	STATUS=`git status 2>&1 | tee`
+	dirty=`echo -n "${STATUS}" 2> /dev/null | grep "modified:" &> /dev/null; echo "$?"`
+	untracked=`echo -n "${STATUS}" 2> /dev/null | grep "Untracked files" &> /dev/null; echo "$?"`
+	ahead=`echo -n "${STATUS}" 2> /dev/null | grep "Your branch is ahead of" &> /dev/null; echo "$?"`
+	newfile=`echo -n "${STATUS}" 2> /dev/null | grep "new file:" &> /dev/null; echo "$?"`
+	renamed=`echo -n "${STATUS}" 2> /dev/null | grep "renamed:" &> /dev/null; echo "$?"`
+	deleted=`echo -n "${STATUS}" 2> /dev/null | grep "deleted:" &> /dev/null; echo "$?"`
+	bits=''
+	if [ "${renamed}" = "0" ]; then
+		bits=">${bits}"
+	fi
+	if [ "${ahead}" = "0" ]; then
+		bits="*${bits}"
+	fi
+	if [ "${newfile}" = "0" ]; then
+		bits="+${bits}"
+	fi
+	if [ "${untracked}" = "0" ]; then
+		bits="?${bits}"
+	fi
+	if [ "${deleted}" = "0" ]; then
+		bits="x${bits}"
+	fi
+	if [ "${dirty}" = "0" ]; then
+		bits="!${bits}"
+	fi
+	if [ ! "${bits}" = "" ]; then
+		echo " ${bits}"
+	else
+		echo ""
+	fi
+}
+
+setopt PROMPT_SUBST
+PROMPT='[%F{yellow}%m %f// %F{red}%n%f] %F{white}%~ %F{magenta}$(parse_git_branch)%f: '
+

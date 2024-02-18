@@ -1,0 +1,80 @@
+{
+	"backlight": {
+		"device": "amdgpu_bl1",
+		"format": "{percent} 󰃞 "
+	},
+
+	"battery": {
+		"interval": 30,
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{capacity}% {icon}",
+		"format-alt": "{time} {icon}",
+		"format-charging": "{capacity}% 󱐋",
+		"format-icons": ["󱊡", "󱊢", "󱊣"],
+		"max-length": 25,
+		"tooltip": false
+	},
+
+	"clock": {
+		"format": "{:%d %b   %R}"
+	},
+	
+	"cpu": {
+		"interval": 10,
+		"format": "{usage}%  ",
+		"format-alt": "{avg_frequency} GHz  ",
+		"max-length": 15,
+		"tooltip": false
+	},
+
+	"memory": {
+		"interval": 30,
+		"format": "{percentage}%  ",
+		"format-alt": "{used} GiB  ",
+		"max-length": 10,
+		"tooltip": false
+	},
+
+	"network": {
+		"format-disconnected": "󰤭 ",
+		"format-ethernet": "󰈀 ",
+		"format-wifi": "{essid} 󰖩 "
+	},
+
+	"pulseaudio": {
+		"format": "{volume} {icon} {format_source}",
+		"format-icons": {
+			"default": ["󰕿", "󰖀", "󰕾"]
+		},
+		"format-muted": "󰝟 {format_source}",
+		"format-source": "󰍬",
+		"format-source-muted": "󰍭 ",
+		"format-bluetooth": "{volume} 󰂯",
+		"format-bluetooth-muted": "󰂲",
+		"on-click": "pavucontrol"
+	},
+
+	"sway/workspaces": {
+		"on-click": "activate",
+		"active-only": false,
+		"all-outputs": true,
+		"format": "{}",
+		"format-icons": {
+		  "urgent": "",
+		  "active": "",
+		  "default": ""
+		}
+	},
+
+	"temperature": {
+		"thermal-zone": 1,
+		"critical-threshold": 80,
+		"format": "{temperatureC}°C {icon}",
+		"format-critical": "{temperatureC}°C {icon}",
+		"format-icons":	["", "", "", "", ""],
+		"tooltip": false
+	}
+}

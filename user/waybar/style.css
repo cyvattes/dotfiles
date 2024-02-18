@@ -1,0 +1,193 @@
+/* ------- *
+ * General *
+ * ------- */
+
+* {
+  font-family: "Arimo Nerd Font", "Font Awesome 6 Free", sans-serif;
+  font-size: 14px;
+  border: none;
+  border-radius: 0px;
+}
+
+window#waybar {
+  background-color: rgba(0, 0, 0, 0.8);
+  background: transparent;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+/* ---------- *
+ * Workspaces *
+ * ---------- */
+
+@define-color ws-bg #d5c4a1;
+@define-color ws-fg #fe8019;
+@define-color ws-hv #cc241d; 
+
+#workspaces {
+  /*
+  background: @ws-bg;
+  opacity: 0.8;
+  border-radius: 20px;
+  */
+  padding: 3px;
+}
+
+#workspaces button {
+  background-color: @ws-fg;
+  opacity: 0.5;
+  padding: 0px 5px;
+  margin: 0px 2px;
+  border-radius: 15px;
+  transition: all 0.3s ease-in-out;
+}
+
+#workspaces button.focused {
+  background-color: @ws-fg;
+  opacity: 1.0;
+  min-width: 30px;
+}
+
+#workspaces button:hover {
+  background: @ws-hv;
+  opacity: 0.6;
+  box-shadow: inset 0 0 @ws-hv;
+}
+
+/* ------- *
+ * Modules *
+ * ------- */
+
+/*
+.modules-left {
+  background-color: #1d2021;
+  border-radius: 8px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.modules-right {
+  background-color: #1d2021;
+  border-radius: 8px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+*/
+
+#custom-icon {
+  font-size: 20px;
+  color: #af3a03; 
+  margin-right: 10px;
+}
+
+#battery,
+#cpu,
+#memory,
+#temperature {
+  background: #282828;
+  padding: 1px 5px 0px 5px;
+  margin: 5px 0px;
+  border-top: 1px solid @ws-bg;
+  border-bottom: 1px solid @ws-bg;
+}
+
+#battery {
+  color: #689d6a;
+  padding-left: 12px;
+  border-left: 1px solid @ws-bg;
+  border-radius: 15px 0px 0px 15px;
+}
+
+#cpu {
+  color: #b57614;
+}
+
+#memory {
+  color: #98971a;
+}
+
+#temperature {
+  color: #fe8019;
+  padding-right: 12px;
+  border-right: 1px solid @ws-bg;
+  border-radius: 0px 15px 15px 0px;
+}
+
+#pulseaudio,
+#backlight,
+#network {
+  background: #282828;
+  padding: 1px 5px 0px 5px;
+  margin: 5px 0px;
+  border-top: 1px solid @ws-bg;
+  border-bottom: 1px solid @ws-bg;
+}
+
+#backlight {
+  color: #d79921;
+  padding-left: 12px;
+  border-left: 1px solid @ws-bg;
+  border-radius: 15px 0px 0px 15px;
+}
+
+#pulseaudio {
+  color: #458588;
+}
+
+#network {
+  color: #fe8019;
+  border-right: 1px solid @ws-bg;
+  border-radius: 0px 15px 15px 0px;
+}
+
+#clock {
+  background: #282828;
+  color: #d5c4a1;
+  padding: 1px 5px 0px 5px;
+  margin: 5px 0px;
+  border: 1px solid @ws-bg;
+  border-radius: 15px
+}
+
+#tray {
+  background: #282828;
+  color: #d5c4a1;
+  padding: 1px 10px 1px 10px;
+  margin: 5px 10px;
+  border: 1px solid @ws-bg;
+  border-radius: 15px
+}
+
+#custom-window-name {
+  margin-right: 10px;
+  color: #ebdbb2;
+}
+
+#custom-right-arr {
+  color: #f2e5bc;
+}
+
+#custom-dot {
+  color: #6e738d;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#custom-dot-alt {
+  color: #a5adcb;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#custom-clock-icon {
+  background-color: #cad3f5;
+  color: #f2e5bc;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+
+/*# sourceMappingURL=style.css.map */
