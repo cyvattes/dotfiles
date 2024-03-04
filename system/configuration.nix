@@ -33,6 +33,7 @@
 
   # Environment
   nixpkgs.config.allowUnfree = true;
+  #nixpkgs.config.allowUnsupportedSystem = true; # TODO: needed for warp-terminal
   environment.systemPackages = with pkgs; [
     # System
     curl
@@ -42,5 +43,8 @@
 
     # User
     firefox
+    google-chrome
+    steam
+    #warp-terminal # TODO: check why this isn't available after reboot
   ];
 }
